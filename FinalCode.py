@@ -4,7 +4,7 @@ import os
 import random
 
 def get_image_male_short():
-    directory = "C:/Users/Asus/Desktop/Images/MS" # Use forward slashes or double backslashes in the directory path
+    directory = "C:/Users/Asus/Desktop/Images/MS" 
     image_list = []
     for filename in os.listdir(directory):
         if filename.endswith(".jpg") or filename.endswith(".png"):
@@ -12,7 +12,7 @@ def get_image_male_short():
     return image_list
 
 def get_image_male_medium():
-    directory = "C:/Users/Asus/Desktop/Images/MM" # Use forward slashes or double backslashes in the directory path
+    directory = "C:/Users/Asus/Desktop/Images/MM" 
     image_list = []
     for filename in os.listdir(directory):
         if filename.endswith(".jpg") or filename.endswith(".png"):
@@ -20,7 +20,7 @@ def get_image_male_medium():
     return image_list
 
 def get_image_male_tall():
-    directory = "C:/Users/Asus/Desktop/Images/MT" #Use forward slashes or double backslashes in the directory path
+    directory = "C:/Users/Asus/Desktop/Images/MT" 
     image_list = []
     for filename in os.listdir(directory):
         if filename.endswith(".jpg") or filename.endswith(".png"):
@@ -29,7 +29,7 @@ def get_image_male_tall():
 
 
 def get_image_female_short():
-    directory = "C:/Users/Asus/Desktop/Images/FS" #Use forward slashes or double backslashes in the directory path
+    directory = "C:/Users/Asus/Desktop/Images/FS" 
     image_list = []
     for filename in os.listdir(directory):
         if filename.endswith(".jpg") or filename.endswith(".png"):
@@ -38,7 +38,7 @@ def get_image_female_short():
 
 
 def get_image_female_medium():
-    directory = "C:/Users/Asus/Desktop/Images/FM" #Use forward slashes or double backslashes in the directory path
+    directory = "C:/Users/Asus/Desktop/Images/FM" 
     image_list = []
     for filename in os.listdir(directory):
         if filename.endswith(".jpg") or filename.endswith(".png"):
@@ -47,7 +47,7 @@ def get_image_female_medium():
 
 
 def get_image_female_tall():
-    directory = "C:/Users/Asus/Desktop/Images/FT" #Use forward slashes or double backslashes in the directory path
+    directory = "C:/Users/Asus/Desktop/Images/FT" 
     image_list = []
     for filename in os.listdir(directory):
         if filename.endswith(".jpg") or filename.endswith(".png"):
@@ -62,22 +62,23 @@ def main():
 
     image_list = []
 
-    gender = input("Please enter gender: ") # Removed str() as input() already returns a string
+    gender = input("Please enter gender: ") 
     height = float(input("Please enter height: "))
 
-    if gender == "male" or gender == "Male" and height < 5.0:
+    if (gender == "male" or gender == "Male") and height < 5.0:
         image_list = get_image_male_short()
-    elif gender == "male" or gender == "Male" and height >5.0 and height <5.6:
+    elif (gender == "male" or gender == "Male") and height >5.0 and height <5.9:
         image_list = get_image_male_medium()
-    elif gender == "male" or gender == "Male" and height > 5.5:
+    elif (gender == "male" or gender == "Male") and height > 5.9:
         image_list = get_image_male_tall()
-    elif gender == "female" or gender =="Female" and height < 4.7:
+    elif (gender == "female" or gender =="Female") and height < 5.2:
         image_list = get_image_female_short()
-    elif gender == "female" or gender == "Female" and height >4.7 and height < 5.3:
+    elif (gender == "female" or gender == "Female") and height >=5.2 and height <= 5.7:
         image_list = get_image_female_medium()
-    elif gender == "female" or gender == "Female" and height > 5.3:
+    elif (gender == "female" or gender == "Female") and height > 5.7:
         image_list = get_image_female_tall()
-    
+    else:
+        print("Wrong Choice")
     random_image = random.choice(image_list)
 
     image = Image.open(random_image)
